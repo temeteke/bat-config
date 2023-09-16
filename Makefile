@@ -19,8 +19,11 @@ clean:
 	rm -f $(TAR_FILE)
 	rm -fr $(TAR_NAME)
 
-install: $(TAR_NAME)
+install: $(TAR_NAME) $(BIN_DIR)
 	cp -a $(TAR_NAME)/bat $(BIN_DIR)/
 
 uninstall:
 	rm -f $(BIN_DIR)/bat
+
+$(BIN_DIR):
+	mkdir -p $@
