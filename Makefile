@@ -1,3 +1,5 @@
+BIN_DIR := ~/.local/bin
+
 VERSION := $(shell url=$$(curl -s -w '%{redirect_url}' https://github.com/sharkdp/bat/releases/latest); echo $${url##*v})
 TARGET := x86_64-unknown-linux-gnu
 TAR_NAME := bat-v$(VERSION)-$(TARGET)
@@ -18,7 +20,7 @@ clean:
 	rm -fr $(TAR_NAME)
 
 install: $(TAR_NAME)
-	cp $(TAR_NAME)/bat ~/.local/bin/
+	cp $(TAR_NAME)/bat $(BIN_DIR)/
 
 uninstall:
-	rm ~/.local/bin/bat
+	rm $(BIN_DIR)/bat
