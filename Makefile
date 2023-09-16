@@ -1,6 +1,6 @@
 BIN_DIR := ~/.local/bin
 
-VERSION := $(shell url=$$(curl -s -w '%{redirect_url}' https://github.com/sharkdp/bat/releases/latest); echo $${url##*v})
+VERSION := $(subst https://github.com/sharkdp/bat/releases/tag/v,,$(shell curl -s -w '%{redirect_url}' https://github.com/sharkdp/bat/releases/latest))
 TARGET := x86_64-unknown-linux-gnu
 TAR_NAME := bat-v$(VERSION)-$(TARGET)
 TAR_FILE := $(TAR_NAME).tar.gz
