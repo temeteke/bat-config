@@ -23,4 +23,4 @@ install: $(TAR_NAME)
 	cp -a $(TAR_NAME)/bat $(BIN_DIR)/
 
 uninstall:
-	rm $(BIN_DIR)/bat
+	rm -f $(BIN_DIR)/bat
