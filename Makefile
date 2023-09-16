@@ -20,7 +20,7 @@ clean:
 	rm -fr $(TAR_NAME)
 
 install: $(TAR_NAME)
-	cp $(TAR_NAME)/bat $(BIN_DIR)/
+	cp -a $(TAR_NAME)/bat $(BIN_DIR)/
 
 uninstall:
 	rm $(BIN_DIR)/bat
