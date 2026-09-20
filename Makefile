@@ -6,7 +6,7 @@ TAR_NAME := bat-v$(VERSION)-$(TARGET)
 TAR_FILE := $(TAR_NAME).tar.gz
 TAR_URL := https://github.com/sharkdp/bat/releases/download/v$(VERSION)/$(TAR_FILE)
 
-.PHONY: all clean install uninstall
+.PHONY: all clean install install-bin uninstall uninstall-bin
 all: $(TAR_NAME)
 
 $(TAR_NAME): $(TAR_FILE)
@@ -19,10 +19,14 @@ clean:
 	rm -f $(TAR_FILE)
 	rm -fr $(TAR_NAME)
 
-install: $(TAR_NAME) $(BIN_DIR)
+install: install-bin
+
+install-bin: $(TAR_NAME) $(BIN_DIR)
 	cp -a $(TAR_NAME)/bat $(BIN_DIR)/
 
-uninstall:
+uninstall: uninstall-bin
+
+uninstall-bin:
 	rm -f $(BIN_DIR)/bat
 
 $(BIN_DIR):
